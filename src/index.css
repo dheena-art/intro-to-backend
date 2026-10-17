@@ -1,0 +1,522 @@
+/* ─────────────────────────────────────────────
+   ScopeLock CLM — Humanized Design System
+   Black · Blue · White
+   ───────────────────────────────────────────── */
+
+:root {
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'DM Sans', 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'DM Mono', 'Courier New', monospace;
+
+  /* ── Dark Mode (default) ── */
+  /* Backgrounds — true blacks and deep navy, not purple-tinted */
+  --bg-primary:      #0d0f14;
+  --bg-secondary:    #13161e;
+  --bg-card:         #191d28;
+  --bg-card-hover:   #1f2434;
+  --bg-glass:        rgba(19, 22, 30, 0.8);
+  --bg-glass-heavy:  rgba(13, 15, 20, 0.95);
+
+  /* Borders — subtle, not glowing */
+  --border-subtle:    rgba(255, 255, 255, 0.07);
+  --border-medium:    rgba(255, 255, 255, 0.12);
+  --border-strong:    rgba(255, 255, 255, 0.20);
+  --border-highlight: rgba(59, 130, 246, 0.35);
+
+  /* Text — clear hierarchy, comfortable contrast */
+  --text-primary:   #f0f2f7;
+  --text-secondary: #8b93a8;
+  --text-tertiary:  #5a6275;
+  --text-inverse:   #0d0f14;
+
+  /* Core accent — true blue, not purple */
+  --accent-primary:       #3b82f6;
+  --accent-primary-hover: #2563eb;
+  --accent-primary-dim:   rgba(59, 130, 246, 0.12);
+  --accent-primary-glow:  rgba(59, 130, 246, 0.18);
+
+  /* Supporting accents — muted, tasteful */
+  --accent-sky:     #0ea5e9;
+  --accent-sky-dim: rgba(14, 165, 233, 0.12);
+  --accent-cyan:    #0ea5e9;
+  --accent-cyan-glow: rgba(14, 165, 233, 0.15);
+
+  --accent-emerald:     #22c55e;
+  --accent-emerald-dim: rgba(34, 197, 94, 0.12);
+
+  --accent-amber:     #f59e0b;
+  --accent-amber-dim: rgba(245, 158, 11, 0.12);
+
+  --accent-rose:    #ef4444;
+  --accent-red:     #ef4444;
+  --accent-red-dim: rgba(239, 68, 68, 0.12);
+  --accent-rose-glow: rgba(239, 68, 68, 0.15);
+
+  --accent-violet:     #8b5cf6;
+  --accent-violet-dim: rgba(139, 92, 246, 0.12);
+  --accent-purple:     #8b5cf6;
+
+  /* Shadows — natural, no colored glows by default */
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.30);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.38);
+  --shadow-lg: 0 8px 28px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.55);
+
+  /* Border radius — slightly tighter for a professional feel */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 9999px;
+}
+
+/* ── Light Mode ── */
+[data-theme='light'] {
+  --bg-primary:      #f4f6fa;
+  --bg-secondary:    #ffffff;
+  --bg-card:         #ffffff;
+  --bg-card-hover:   #f8faff;
+  --bg-glass:        rgba(248, 250, 255, 0.9);
+  --bg-glass-heavy:  rgba(255, 255, 255, 0.98);
+
+  --border-subtle:    rgba(0, 0, 0, 0.07);
+  --border-medium:    rgba(0, 0, 0, 0.12);
+  --border-strong:    rgba(0, 0, 0, 0.20);
+  --border-highlight: rgba(59, 130, 246, 0.30);
+
+  --text-primary:   #111827;
+  --text-secondary: #4b5563;
+  --text-tertiary:  #9ca3af;
+  --text-inverse:   #ffffff;
+
+  --accent-primary:       #2563eb;
+  --accent-primary-hover: #1d4ed8;
+  --accent-primary-dim:   rgba(37, 99, 235, 0.08);
+  --accent-primary-glow:  rgba(37, 99, 235, 0.14);
+
+  --accent-sky:     #0284c7;
+  --accent-sky-dim: rgba(2, 132, 199, 0.10);
+  --accent-cyan:    #0284c7;
+  --accent-cyan-glow: rgba(2, 132, 199, 0.12);
+
+  --accent-emerald:     #16a34a;
+  --accent-emerald-dim: rgba(22, 163, 74, 0.10);
+
+  --accent-amber:     #d97706;
+  --accent-amber-dim: rgba(217, 119, 6, 0.10);
+
+  --accent-rose:    #dc2626;
+  --accent-red:     #dc2626;
+  --accent-red-dim: rgba(220, 38, 38, 0.10);
+  --accent-rose-glow: rgba(220, 38, 38, 0.12);
+
+  --accent-violet:     #7c3aed;
+  --accent-violet-dim: rgba(124, 58, 237, 0.10);
+  --accent-purple:     #7c3aed;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.07);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.09);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.10);
+  --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ─────────────────────────────────────────────
+   Reset & Base
+   ───────────────────────────────────────────── */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: radial-gradient(ellipse at 20% 0%, rgba(59, 130, 246, 0.05) 0%, transparent 55%);
+  background-attachment: fixed;
+}
+
+/* ─────────────────────────────────────────────
+   Typography — Humanized, Readable Hierarchy
+   ───────────────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6, .brand-title {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.015em;
+}
+
+h1 { font-size: 1.875rem; }
+h2 { font-size: 1.375rem; }
+h3 { font-size: 1.125rem; }
+h4 { font-size: 1rem; }
+
+p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+/* ─────────────────────────────────────────────
+   Interactive Elements
+   ───────────────────────────────────────────── */
+
+button {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  transition: background 0.18s ease, color 0.18s ease,
+              border-color 0.18s ease, box-shadow 0.18s ease,
+              transform 0.12s ease;
+}
+
+button:active { transform: translateY(1px); }
+
+input, textarea, select {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border-medium);
+  color: var(--text-primary);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.9rem;
+  line-height: 1.5;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  width: 100%;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-primary-dim);
+  outline: none;
+}
+
+/* ─────────────────────────────────────────────
+   Cards & Panels
+   ───────────────────────────────────────────── */
+
+.glass-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.glass-panel:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-medium);
+}
+
+/* ─────────────────────────────────────────────
+   Badges — Readable, Not Aggressive
+   ───────────────────────────────────────────── */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge-blue {
+  background: var(--accent-primary-dim);
+  color: var(--accent-primary);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.badge-sky, .badge-cyan {
+  background: var(--accent-sky-dim);
+  color: var(--accent-sky);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+}
+
+.badge-emerald {
+  background: var(--accent-emerald-dim);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.badge-amber {
+  background: var(--accent-amber-dim);
+  color: var(--accent-amber);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.badge-rose, .badge-red {
+  background: var(--accent-red-dim);
+  color: var(--accent-red);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.badge-purple, .badge-violet {
+  background: var(--accent-violet-dim);
+  color: var(--accent-violet);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+/* ─────────────────────────────────────────────
+   Scrollbar
+   ───────────────────────────────────────────── */
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.20);
+}
+
+/* ─────────────────────────────────────────────
+   Modals
+   ───────────────────────────────────────────── */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 15, 0.70);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+  animation: fadeIn 0.18s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px) scale(0.99); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-content {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  max-width: 760px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ─────────────────────────────────────────────
+   Animations
+   ───────────────────────────────────────────── */
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+
+.pulse-indicator {
+  animation: pulseDot 2.2s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────
+   Legal Document Styles & Humanized Letter
+   ───────────────────────────────────────────── */
+
+.legal-contract-sheet {
+  background: var(--doc-bg, #ffffff);
+  color: var(--doc-text, #1e293b);
+  border-radius: var(--radius-lg);
+  padding: 3.25rem 3.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14), 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: var(--doc-font-family, 'Plus Jakarta Sans', sans-serif);
+  font-size: var(--doc-font-size, 1rem);
+  line-height: var(--doc-line-height, 1.75);
+  transition: all 0.25s ease;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Paper Theme Presets */
+.legal-contract-sheet.paper-modern {
+  --doc-bg: #ffffff;
+  --doc-text: #0f172a;
+  border: 1px solid #e2e8f0;
+}
+
+.legal-contract-sheet.paper-warm {
+  --doc-bg: #fdfbf7;
+  --doc-text: #292524;
+  border: 1px solid #eedec7;
+  box-shadow: 0 12px 32px rgba(180, 140, 90, 0.12);
+}
+
+.legal-contract-sheet.paper-minimal {
+  --doc-bg: #ffffff;
+  --doc-text: #1e293b;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.legal-contract-sheet h1,
+.legal-contract-sheet h2,
+.legal-contract-sheet h3 {
+  font-family: inherit;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+}
+
+.legal-contract-sheet.paper-warm h1,
+.legal-contract-sheet.paper-warm h2,
+.legal-contract-sheet.paper-warm h3 {
+  color: #292524;
+}
+
+.legal-clause-block {
+  margin-bottom: 1.75rem;
+  font-size: 1em;
+}
+
+.legal-clause-title {
+  font-weight: 700;
+  font-size: 0.95em;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.legal-contract-sheet.paper-warm .legal-clause-title {
+  color: #44403c;
+}
+
+/* Humanized Letter Greeting Card */
+.letter-greeting-box {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(14, 165, 233, 0.03));
+  border-left: 4px solid #3b82f6;
+  border-radius: 0 8px 8px 0;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 1.02em;
+  line-height: 1.7;
+  color: #1e293b;
+}
+
+.legal-contract-sheet.paper-warm .letter-greeting-box {
+  background: rgba(217, 119, 6, 0.06);
+  border-left-color: #d97706;
+  color: #292524;
+}
+
+/* Humanized Executive Summary Box */
+.letter-summary-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  font-size: 0.96em;
+  line-height: 1.65;
+}
+
+.legal-contract-sheet.paper-warm .letter-summary-card {
+  background: #fbf7ee;
+  border-color: #eedec7;
+}
+
+/* Humanized Clause Card */
+.humanized-clause-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.humanized-clause-card:hover {
+  border-color: #cbd5e1;
+  background: #f1f5f9;
+}
+
+.legal-contract-sheet.paper-warm .humanized-clause-card {
+  background: #fbf7ee;
+  border-color: #eedec7;
+}
+
+.legal-contract-sheet.paper-warm .humanized-clause-card:hover {
+  background: #f7f1e4;
+  border-color: #e2ceb1;
+}
+
+.legal-stamp {
+  border: 1.5px dashed #2563eb;
+  padding: 0.85rem 1.25rem;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.legal-contract-sheet.paper-warm .legal-stamp {
+  background: #fef3c7;
+  border-color: #d97706;
+  color: #b45309;
+}
+
+/* ─────────────────────────────────────────────
+   Print
+   ───────────────────────────────────────────── */
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+}
